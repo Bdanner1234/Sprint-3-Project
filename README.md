@@ -1,51 +1,64 @@
-# Project Overview
+Project Overview
 
-Customer churn is one of the most pressing challenges for telecom providers. This project predicts whether a customer is likely to leave the company based on their contract details, internet services, and account information.
-By identifying customers at risk of churn, the company can take proactive retention measures (e.g., discounts, loyalty programs) to reduce revenue loss.
-This project was completed as part of the TripleTen Data Science Program.
+This project focuses on predicting customer churn for a telecommunications company. By identifying customers who are likely to leave, the company can proactively take steps to retain them — such as offering discounts or personalized services — and reduce revenue loss.
 
-Data
+This work was completed as part of the TripleTen Data Science Program (Sprint 3).
 
-The dataset contained the following information about each customer:
-Contract details: start and end dates, type of contract, payment method
-Internet services: type of connection, additional services (backup, security, etc.)
-Account info: monthly charges, total charges, tenure
+Data Description
+
+The dataset included customer information such as:
+
+Contract details: start and end dates, payment type, and contract type
+
+Internet services: connection type, additional services (security, backup, etc.)
+
+Customer account info: monthly and total charges, tenure, and demographics
+
 Target variable: Churn (Yes/No)
 
-Methodology
+Project Steps
 
 Data Preprocessing
-Replaced EndDate = "No" with active contract values
-Encoded categorical features with one-hot encoding
-Standardized numerical features
-Addressed class imbalance using SMOTE (Synthetic Minority Oversampling Technique)
 
-Model Training
+Converted “No” in the EndDate column to indicate active customers
 
-Evaluated multiple models:
+Handled missing values and encoded categorical features
+
+Scaled numerical data for consistent model performance
+
+Exploratory Data Analysis (EDA)
+
+Examined churn patterns across contract types and internet services
+
+Visualized churn vs. total charges, tenure, and contract duration
+
+Model Building
+
+Tested multiple classification models:
+
 Logistic Regression
+
 Random Forest Classifier
-Gradient Boosting
-Tuned hyperparameters with GridSearchCV
+
+Gradient Boosting (LightGBM)
+
+Used train/test split and cross-validation for fair evaluation
 
 Evaluation Metrics
 
-Main metric: F1-score (threshold ≥ 0.59)
-Secondary metric: ROC-AUC for probability-based evaluation
+Primary metric: F1-score (target ≥ 0.59)
+
+Additional metric: ROC-AUC
 
 Results
 
 Best model: Random Forest Classifier (after tuning)
-F1-score: ~0.60 (met program requirements)
-ROC-AUC: ~0.85
 
-Successfully identified customers most at risk of churn
+F1-score: ≈ 0.60 (met target)
 
-Business Impact: The model provides a tool for targeting retention campaigns, helping reduce customer turnover and increase lifetime value.
+ROC-AUC: ≈ 0.85
 
-Tech Stack
+The model successfully identified high-risk churn customers for targeted retention campaigns.
 
-Python
-pandas, NumPy, scikit-learn
-Matplotlib, Seaborn
-imbalanced-learn (SMOTE)
+Business Value:
+This solution allows the telecom company to focus marketing efforts and reduce churn-related revenue loss.
